@@ -26,12 +26,16 @@ public class Tarea1 {
             Scanner scanner = new Scanner(System.in);
             M = scanner.nextInt();
 
+            String [][] Matriz = new String[M][M];
+            
             for (int i = 0; i < M; i++) {
                 for (int j = 0; j < M; j++) {
                     if (i==0 || i==(M-1) || j==0 || j==(M-1)) {
-                        System.out.print("|1|");
+                        Matriz[i][j]="1";
+                        System.out.print(Matriz[i][j]);
                     }else{
-                        System.out.print("| |");
+                        Matriz[i][j]=" ";
+                        System.out.print(Matriz[i][j]);
                     }
                     System.out.print("\t");
                 }
