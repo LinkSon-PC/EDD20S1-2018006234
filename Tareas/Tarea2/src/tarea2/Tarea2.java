@@ -49,7 +49,7 @@ public class Tarea2 {
                     case 2:
                         System.out.println("ESCOJA UNA MONEDA");
                         for (int i = 0; i < tda.size(); i++) {
-                            System.out.println(tda.get(i));
+                            System.out.println(Integer.toString(i)+" "+ tda.get(i).getNombreM());
                         }
                         Scanner opcion = new Scanner(System.in);
                         op=opcion.nextInt();
@@ -74,6 +74,33 @@ public class Tarea2 {
                         //tda.Banco(tda);
                         break;
                     case 4:
+                        System.out.println("ESCOJA UNA MONEDA");
+                        for (int i = 0; i < tda.size(); i++) {
+                            System.out.println(Integer.toString(i)+" "+ tda.get(i).getNombreM());
+                        }
+                        Scanner opcionT = new Scanner(System.in);
+                        op=opcionT.nextInt();
+                        
+                        for (int i = 0; i < tda.get(op).getCliente().size(); i++) {
+                            System.out.println(tda.get(op).getCliente().get(i).getNombreP()
+                            +"  "+tda.get(op).getCliente().get(i).getCantidadM());
+                        }
+                        
+                        int origen=0,destino=0,monto=0;
+                        
+                        System.out.println("ESCRIBA CUENTA ORIGEN");
+                        Scanner org = new Scanner(System.in);
+                        nom=org.next();
+                        
+                        System.out.println("ESCRIBA CUENTA DESTINO");
+                        Scanner des = new Scanner(System.in);
+                        destino=des.nextInt();
+                        
+                        System.out.println("ESCRIBA MONTO ORIGEN");
+                        Scanner mnt = new Scanner(System.in);
+                        monto=mnt.nextInt();
+                        tda.get(op).Transaccion(origen, destino, monto);
+                        
                         break;
                     case 5:
                         sesion = false;

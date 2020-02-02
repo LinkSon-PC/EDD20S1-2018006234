@@ -33,15 +33,20 @@ public class TDA_Moneda {
     }
     
     public void AgregarCliente(String NombreP, int CantidadP){
-        Cliente.add(new TDA_Moneda(NombreP, CantidadP));
+        getCliente().add(new TDA_Moneda(NombreP, CantidadP));
     }
 
     public int Dinero(){
         int total=0;
-        for (TDA_Moneda dinero : Cliente) {
+        for (TDA_Moneda dinero : getCliente()) {
             total+=dinero.getCantidadM();
         }
         return total;
+    }
+    
+    public void Transaccion(int origen, int destino, int monto){
+        Cliente.get(origen).setCantidadM(Cliente.get(origen).getCantidadM()-monto);
+        Cliente.get(destino).setCantidadM(Cliente.get(destino).getCantidadM()+monto);
     }
     /**
      * @return the NombreM
@@ -83,6 +88,20 @@ public class TDA_Moneda {
      */
     public void setNombreP(String NombreP) {
         this.NombreP = NombreP;
+    }
+
+    /**
+     * @return the Cliente
+     */
+    public LinkedList<TDA_Moneda> getCliente() {
+        return Cliente;
+    }
+
+    /**
+     * @param Cliente the Cliente to set
+     */
+    public void setCliente(LinkedList<TDA_Moneda> Cliente) {
+        this.Cliente = Cliente;
     }
 
     
